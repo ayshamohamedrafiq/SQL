@@ -1,0 +1,44 @@
+#This project utilizes the following CarAccessories data: 
+
+CREATE TABLE CarParts (
+    item_id INTEGER PRIMARY KEY,
+    item_name TEXT,
+    category TEXT,
+    price DECIMAL(10, 2),
+    stock_quantity INTEGER,
+    average_rating DECIMAL(3, 2)
+);
+
+INSERT INTO CarParts (item_id, item_name, category, price, stock_quantity, average_rating)
+VALUES
+    (1, 'GPS', 'Gadget', 89.99, 50, 4.6),
+    (2, 'Leather seats', 'Furnishings', 499.99, 30, 4.8),
+    (3, 'DVD Player', 'Electronics', 549.00, 20, 4.5),
+    (4, 'Vacuum Cleaner', 'Appliances', 199.50, 40, 4.3),
+    (5, 'Bluetooth Speaker', 'Electronics', 39.99, 60, 4.2),
+    (6, 'Windsheild SunShade', 'Furnishings', 29.95, 80, 4.4),
+    (7, 'Back Seat Organizer', 'Furnishings', 89.00, 25, 4.7),
+    (8, 'Smart Home Security Camera', 'Electronics', 79.95, 15, 4.1),
+    (9, 'Air Purifier', 'Interior Care', 129.50, 35, 4.6),
+    (10, '', 'Kitchen Supplies', 79.99, 50, 4.9),
+    (11, 'Chair massager', 'Furnishings', 189.00, 20, 4.5),
+    (12, 'Cell phone Holder', 'Gadget', 49.99, 75, 4.3),
+    (13, 'Coleen Glass Cleaner', 'Interior Care', 49.95, 30, 4.7),
+    (14, 'Upholstery Foam', 'Interior Care', 34.50, 40, 4.4),
+    (15, 'Cozy Throw Blanket', 'Furnishings', 24.99, 100, 4.2);
+
+#For this project, I used SQL to query the Superstore database to get information about items sold at the store and their prices. 
+
+#Use a SELECT statement to order the items by price.
+SELECT item_name, price
+FROM CarParts
+ORDER BY price desc;
+
+#Show a statistic about the item prices.
+SELECT avg(price)
+FROM CarParts;
+
+#Show a statistic about the price for items in the category of "Furnishings". 
+SELECT avg(price)
+FROM superstore
+WHERE category="Furnishings"
